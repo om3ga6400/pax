@@ -1,12 +1,66 @@
---[[
- .____                  ________ ___.    _____                           __                
- |    |    __ _______   \_____  \\_ |___/ ____\_ __  ______ ____ _____ _/  |_  ___________ 
- |    |   |  |  \__  \   /   |   \| __ \   __\  |  \/  ___// ___\\__  \\   __\/  _ \_  __ \
- |    |___|  |  // __ \_/    |    \ \_\ \  | |  |  /\___ \\  \___ / __ \|  | (  <_> )  | \/
- |_______ \____/(____  /\_______  /___  /__| |____//____  >\___  >____  /__|  \____/|__|   
-         \/          \/         \/    \/                \/     \/     \/                   
-          \_Welcome to LuaObfuscator.com   (Alpha 0.10.9) ~  Much Love, Ferib 
+local VERSION = "2.0.0"
+local RunService = game:GetService("RunService")
+local StarterGui = game:GetService("StarterGui")
+local trackedObjects = {}
+local rainbowHue = 0
 
-]]--
+local function sendNotification(title)
+    pcall(function()
+        StarterGui:SetCore("SendNotification", {Title = title, Text = "", Duration = 3})
+    end)
+end
 
-local v0=string.char;local v1=string.byte;local v2=string.sub;local v3=bit32 or bit ;local v4=v3.bxor;local v5=table.concat;local v6=table.insert;local function v7(v16,v17) local v18={};for v42=1, #v16 do v6(v18,v0(v4(v1(v2(v16,v42,v42 + 1 )),v1(v2(v17,1 + (v42% #v17) ,1 + (v42% #v17) + 1 )))%256 ));end return v5(v18);end local v8=v7("\131\141\139\107\182","\126\177\163\187\69\134\219\167");local v9=game:GetService(v7("\17\216\36\246\249\49\219\35\198\249","\156\67\173\74\165"));local v10=game:GetService(v7("\7\163\72\4\168\35\84\19\162\64","\38\84\215\41\118\220\70"));local v11={};local v12=0 + 0 ;local function v13(v19) pcall(function() v10:SetCore(v7("\99\19\44\22\208\95\2\43\20\247\83\23\54\27\241\94","\158\48\118\66\114"),{[v7("\159\45\4\58\118","\155\203\68\112\86\19\197")]=v19,[v7("\114\216\46\232","\152\38\189\86\156\32\24\133")]="",[v7("\216\66\181\71\232\94\168\72","\38\156\55\199")]=1141 -(116 + 1022) });end);end local function v14(v20) return (v20:IsA(v7("\138\124\111\45\35\117\232\87","\35\200\29\28\72\115\20\154")) and v20) or (v20:IsA(v7("\52\176\213\218\129","\84\121\223\177\191\237\76")) and (v20.PrimaryPart or v20:FindFirstChildWhichIsA(v7("\153\87\218\165\10\81\34\213","\161\219\54\169\192\90\48\80")))) ;end local function v15(v21,v22,v23) if v11[v21] then return;end local v24=v14(v21);if  not v24 then return;end local v25=Instance.new(v7("\97\75\7\45\69\75\7\45\93","\69\41\34\96"));v25.FillColor=v22;v25.OutlineColor=v22;v25.FillTransparency=0.5;v25.Parent=v21;local v30=Instance.new(v7("\158\202\219\6\0\36\189\209\211\45\23\34","\75\220\163\183\106\98"),v24);v30.AlwaysOnTop=true;v30.Size=UDim2.new(0 -0 ,59 + 41 ,0,365 -265 );local v33=Instance.new(v7("\36\168\138\58\220","\185\98\218\235\87"),v30);v33.Size=UDim2.new(1,0 -0 ,1,859 -(814 + 45) );v33.BackgroundColor3=v22;v33.BackgroundTransparency=0.5 -0 ;v11[v21]={v25,v33};v13(v23   .. v7("\139\24\34\242\219\169\223\57\35","\202\171\92\71\134\190") );end v9.RenderStepped:Connect(function() v12=(v12 + (886 -(261 + 624)))%(639 -279) ;local v38=Color3.fromHSV(v12/(1440 -(1020 + 60)) ,1,1424 -(630 + 793) );for v43,v44 in pairs(v11) do if v44[6 -4 ] then v44[2].BackgroundColor3=v38;end end end);repeat task.wait();until game:IsLoaded() v13("v"   .. v8 );for v39,v40 in ipairs(workspace:GetDescendants()) do if (v40.Name==v7("\25\200\47\131\28\209\14\137\59\211\41\132","\232\73\161\76")) then v15(v40,Color3.fromRGB(1178 -929 ,90 + 136 ,602 -427 ),v7("\148\208\78\29\60\186\203\80\88\18","\126\219\185\34\61"));elseif ((v40.Name==v7("\63\192\95\121\123","\135\108\174\62\18\30\23\147")) and v40.Parent and (v40.Parent.Name==v7("\151\231\35\198\25\162\32","\167\214\137\74\171\120\206\83"))) then v15(v40,Color3.fromRGB(1950 -(760 + 987) ,2079 -(1789 + 124) ,1013 -(745 + 21) ),v7("\184\254\51\86\253","\199\235\144\82\61\152"));end end workspace.DescendantAdded:Connect(function(v41) if (v41.Name==v7("\55\31\186\32\50\6\155\42\21\4\188\39","\75\103\118\217")) then v15(v41,Color3.fromRGB(86 + 163 ,621 -395 ,686 -511 ),v7("\232\93\124\84\155\31\213\70\117\24","\126\167\52\16\116\217"));elseif ((v41.Name==v7("\251\32\33\139\177","\156\168\78\64\224\212\121")) and v41.Parent and (v41.Parent.Name==v7("\38\224\172\195\6\226\182","\174\103\142\197"))) then v15(v41,Color3.fromRGB(2 + 201 ,166,194 + 53 ),v7("\101\38\94\51\32","\152\54\72\63\88\69\62"));end end);
+local function getMainPart(obj)
+    return obj:IsA("BasePart") and obj or (obj:IsA("Model") and (obj.PrimaryPart or obj:FindFirstChildWhichIsA("BasePart")))
+end
+
+local function createESP(object, color, name)
+    if trackedObjects[object] then return end
+    local part = getMainPart(object)
+    if not part then return end
+    
+    local highlight = Instance.new("Highlight")
+    highlight.FillColor = color
+    highlight.OutlineColor = color
+    highlight.FillTransparency = 0.5
+    highlight.Parent = object
+    
+    local billboard = Instance.new("BillboardGui", part)
+    billboard.AlwaysOnTop = true
+    billboard.Size = UDim2.new(0, 100, 0, 100)
+    
+    local frame = Instance.new("Frame", billboard)
+    frame.Size = UDim2.new(1, 0, 1, 0)
+    frame.BackgroundColor3 = color
+    frame.BackgroundTransparency = 0.5
+    
+    trackedObjects[object] = {highlight, frame}
+    sendNotification(name .. " Detected")
+end
+
+RunService.RenderStepped:Connect(function()
+    rainbowHue = (rainbowHue + 1) % 360
+    local color = Color3.fromHSV(rainbowHue / 360, 1, 1)
+    for _, data in pairs(trackedObjects) do
+        if data[2] then data[2].BackgroundColor3 = color end
+    end
+end)
+
+repeat task.wait() until game:IsLoaded()
+sendNotification("v" .. VERSION)
+
+for _, obj in ipairs(workspace:GetDescendants()) do
+    if obj.Name == "PickUpBarrel" then
+        createESP(obj, Color3.fromRGB(249, 226, 175), "Oil Barrel")
+    elseif obj.Name == "Snake" and obj.Parent and obj.Parent.Name == "Animals" then
+        createESP(obj, Color3.fromRGB(203, 166, 247), "Snake")
+    end
+end
+
+workspace.DescendantAdded:Connect(function(obj)
+    if obj.Name == "PickUpBarrel" then
+        createESP(obj, Color3.fromRGB(249, 226, 175), "Oil Barrel")
+    elseif obj.Name == "Snake" and obj.Parent and obj.Parent.Name == "Animals" then
+        createESP(obj, Color3.fromRGB(203, 166, 247), "Snake")
+    end
+end)
