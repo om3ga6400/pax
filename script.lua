@@ -54,6 +54,8 @@ for _, obj in ipairs(workspace:GetDescendants()) do
         createESP(obj, Color3.fromRGB(249, 226, 175), "Oil Barrel")
     elseif obj.Name == "Snake" and obj.Parent and obj.Parent.Name == "Animals" then
         createESP(obj, Color3.fromRGB(203, 166, 247), "Snake")
+    elseif obj.Name == "Wendigo" or (obj.Name:lower():find("wendigo")) then
+        createESP(obj, Color3.fromRGB(255, 50, 50), "Wendigo")
     end
 end
 
@@ -62,5 +64,7 @@ workspace.DescendantAdded:Connect(function(obj)
         createESP(obj, Color3.fromRGB(249, 226, 175), "Oil Barrel")
     elseif obj.Name == "Snake" and obj.Parent and obj.Parent.Name == "Animals" then
         createESP(obj, Color3.fromRGB(203, 166, 247), "Snake")
+    elseif obj.Name == "Wendigo" or (obj.Name:lower():find("wendigo")) then
+        createESP(obj, Color3.fromRGB(255, 50, 50), "Wendigo")
     end
 end)
