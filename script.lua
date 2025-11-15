@@ -1,4 +1,4 @@
-local VERSION = "2.0.0"
+local VERSION = "2.1.0"
 local RunService = game:GetService("RunService")
 local StarterGui = game:GetService("StarterGui")
 local trackedObjects = {}
@@ -27,14 +27,26 @@ local function createESP(object, color, name)
     
     local billboard = Instance.new("BillboardGui", part)
     billboard.AlwaysOnTop = true
-    billboard.Size = UDim2.new(0, 100, 0, 100)
+    billboard.Size = UDim2.new(0, 100, 0, 120)
+    billboard.StudsOffset = Vector3.new(0, 2, 0)
+    
+    local textLabel = Instance.new("TextLabel", billboard)
+    textLabel.Size = UDim2.new(1, 0, 0, 20)
+    textLabel.Position = UDim2.new(0, 0, 0, 0)
+    textLabel.BackgroundTransparency = 1
+    textLabel.Text = name
+    textLabel.TextColor3 = Color3.new(1, 1, 1)
+    textLabel.TextStrokeTransparency = 0.5
+    textLabel.TextScaled = true
+    textLabel.Font = Enum.Font.SourceSansBold
     
     local frame = Instance.new("Frame", billboard)
-    frame.Size = UDim2.new(1, 0, 1, 0)
+    frame.Size = UDim2.new(1, 0, 0, 100)
+    frame.Position = UDim2.new(0, 0, 0, 20)
     frame.BackgroundColor3 = color
     frame.BackgroundTransparency = 0.5
     
-    trackedObjects[object] = {highlight, frame}
+    trackedObjects[object] = {highlight, frame, textLabel}
     sendNotification(name .. " Detected")
 end
 
