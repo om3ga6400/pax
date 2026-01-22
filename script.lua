@@ -1,4 +1,4 @@
-local VERSION = "2.1.`"
+local VERSION = "2.1.0"
 local RunService = game:GetService("RunService")
 local StarterGui = game:GetService("StarterGui")
 local trackedObjects = {}
